@@ -1,0 +1,94 @@
+# 01-Login
+
+## Example From
+
+Example repo from the many samples at https://github.com/auth0-samples
+
+- [Node and Express - Regular Web App](https://github.com/auth0-samples/auth0-nodejs-webapp-sample)
+- This repo has just the 01-Login folder, adjusted for Heroku deployment.
+
+## Running the Sample
+
+Install the dependencies.
+
+```bash
+npm install
+```
+
+Rename `.env.example` to `.env` and replace the values for `AUTH0_CLIENT_ID`, `AUTH0_DOMAIN`, and `AUTH0_CLIENT_SECRET` with your Auth0 credentials. If you don't yet have an Auth0 account, [sign up](https://auth0.com/signup) for free.
+
+```bash
+# copy configuration and replace with your own
+cp .env.example .env
+```
+
+If you're using a hosting provider that uses a proxy in front of Node.js, comment in the `trust proxy` configuration in [app.js](https://github.com/auth0-samples/auth0-nodejs-webapp-sample/blob/812bb41fa655a1178f6a33ba54b0aee2397b1917/01-Login/app.js#L63-L70). This is a [`express-session` configuration setting](https://www.npmjs.com/package/express-session#cookiesecure) that allows for trusting this first proxy.
+
+Run the app.
+
+```bash
+npm start
+```
+
+The app will be served at `localhost:3000`.
+
+-----
+
+## Two Environments
+
+1. Run locally (on our machine)
+2. Run on the web (hosted with Heroku). 
+
+## Two Ways To Set Configuration
+
+Our configuration information is secret - we manage our config variables differently:
+
+1. Locally, set them in .env (and make sure you add .env to .gitignore). If accidentally committed, remove it from the repo. 
+2. On Heroku, in Settings / Reveal Config Vars / add and edit to provide the information. 
+
+```Bash
+AUTH0_CALLBACK_URL=http://localhost:3000/callback
+AUTH0_CLIENT_ID={CLIENT_ID}
+AUTH0_CLIENT_SECRET={CLIENT_SECRET}
+AUTH0_DOMAIN={DOMAIN}
+```
+
+-----
+
+## Running the Sample With Docker
+
+In order to run the example with docker you need to have `docker` installed.
+
+You also need to set the environment variables as explained [previously](#running-the-sample).
+
+Execute in command line `sh exec.sh` to run the Docker in Linux, or `.\exec.ps1` to run the Docker in Windows.
+
+-----
+
+## What is Auth0?
+
+Auth0 helps you to:
+
+* Add authentication with [multiple authentication sources](https://auth0.com/docs/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, among others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
+* Add authentication through more traditional **[username/password databases](https://auth0.com/docs/mysql-connection-tutorial)**.
+* Add support for **[linking different user accounts](https://auth0.com/docs/link-accounts)** with the same user.
+* Support for generating signed [Json Web Tokens](https://auth0.com/docs/jwt) to call your APIs and **flow the user identity** securely.
+* Analytics of how, when and where users are logging in.
+* Pull data from other sources and add it to the user profile, through [JavaScript rules](https://auth0.com/docs/rules).
+
+## Create a free account in Auth0
+
+1. Go to [Auth0](https://auth0.com) and click Sign Up.
+2. Use Google, GitHub or Microsoft Account to login.
+
+## Troubleshooting
+
+* [Redirect Too Many Times](https://community.auth0.com/t/redirect-too-many-times/35606)
+
+## Author
+
+[Auth0](https://auth0.com)
+
+## License
+
+This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
